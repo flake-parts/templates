@@ -1,6 +1,7 @@
 {
   "nodes": {
     "haskell-flake": {
+      "flake": false,
       "locked": {
         "lastModified": 1716088826,
         "narHash": "sha256-jLNcBHylm1J/Q1Vz7Swsao5J8lZAhQKKSUNHl+r1K7k=",
