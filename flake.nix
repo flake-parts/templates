@@ -14,15 +14,20 @@
         description = "Haskell project template, using haskell-flake";
         path = builtins.path { path = inputs.haskell-flake + /example; };
         params = {
-          cabal-package-name.description = "Name of the Haskell package";
-          cabal-package-name.exec = ''
-            mv example.cabal ''${VALUE}.cabal
-            sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
-            sed -i 's/example/''${VALUE}/g' flake.nix
-          '';
+          cabal-package-name = {
+            help = "Name of the Haskell package";
+            placeholder = "my-haskell-project";
+            exec = ''
+              mv example.cabal ''${VALUE}.cabal
+              sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
+              sed -i 's/example/''${VALUE}/g' flake.nix
+            '';
+          };
         };
       };
     };
+
+    formatter.aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
 
     # To make HCI not fail; remove after adding apps or checks.
     packages.x86_64-linux.hello = inputs.nixpkgs.legacyPackages.x86_64-linux.hello;
