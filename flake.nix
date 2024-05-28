@@ -15,10 +15,10 @@
         path = builtins.path { path = inputs.haskell-flake + /example; };
         params = {
           cabal-package-name.description = "Name of the Haskell package";
-          cabal-package-name.exec = val: ''
-            mv example.cabal ${val}.cabal
-            sed -i 's/example/${val}/g' ${val}.cabal 
-            sed -i 's/example/${val}/g' flake.nix
+          cabal-package-name.exec = ''
+            mv example.cabal ''${VALUE}.cabal
+            sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
+            sed -i 's/example/''${VALUE}/g' flake.nix
           '';
         };
       };
