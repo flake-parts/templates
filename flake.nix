@@ -16,7 +16,7 @@
         params = {
           cabal-package-name = {
             help = "Name of the Haskell package";
-            placeholder = "my-haskell-project";
+            default = "my-haskell-project";
             exec = ''
               mv example.cabal ''${VALUE}.cabal
               sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
