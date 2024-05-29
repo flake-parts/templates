@@ -22,8 +22,12 @@
             help = "Name of the Haskell package";
             # TODO: Sometimes the default is dynamically detected?
             # eg.: $USER
-            default = "my-haskell-project";
+            default = "example";
             required = false;
+            files = [
+              "example.cabal"
+              "flake.nix"
+            ];
             # TODO: Is this a security issue?
             # Can we do away with arbitrary shell commands?
             # Use cases:
