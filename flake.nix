@@ -7,7 +7,6 @@
     haskell-flake.url = "github:srid/haskell-flake";
     haskell-flake.flake = false;
     nix-dev-home.url = "github:juspay/nix-dev-home";
-    nix-dev-home.flake = false;
   };
   outputs = inputs: {
     templates = rec {
