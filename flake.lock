@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "nix-dev-home": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716923620,
+        "narHash": "sha256-1wFoaFGJ6bWKLUAWyFGewIm/wUqCTltx+OQYGttlBLo=",
+        "owner": "juspay",
+        "repo": "nix-dev-home",
+        "rev": "5c8f1aa430824d160e6849a311d6aa9cb8fb0f66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "juspay",
+        "repo": "nix-dev-home",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1716358718,
@@ -35,6 +51,7 @@
     "root": {
       "inputs": {
         "haskell-flake": "haskell-flake",
+        "nix-dev-home": "nix-dev-home",
         "nixpkgs": "nixpkgs"
       }
     }

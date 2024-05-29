@@ -6,40 +6,59 @@
     # The pull happens in CI periodically.
     haskell-flake.url = "github:srid/haskell-flake";
     haskell-flake.flake = false;
+    nix-dev-home.url = "github:juspay/nix-dev-home";
+    nix-dev-home.flake = false;
   };
   outputs = inputs: {
     templates = rec {
+      home-manager = nix-dev-home;
+      nix-dev-home = {
+        description = "home-manager template using nixos-flake module";
+        path = builtins.path { path = inputs.nix-dev-home; };
+        params = {
+          username = {
+            name = "Username";
+            help = "Your username as shown by by $USER";
+            default = "runner";
+            required = true;
+            files = [
+              "flake.nix"
+            ];
+          };
+          full-name = {
+            name = "Full Name";
+            help = "Your full name for use in Git config";
+            default = "John Doe";
+            required = true;
+            files = [
+              "home/default.nix"
+            ];
+          };
+          email = {
+            name = "Email";
+            help = "Your email for use in Git config";
+            default = "johndoe@example.com";
+            required = true;
+            files = [
+              "home/default.nix"
+            ];
+          };
+        };
+      };
       haskell = haskell-flake;
       haskell-flake = {
         description = "Haskell project template, using haskell-flake";
         path = builtins.path { path = inputs.haskell-flake + /example; };
-        # Philosophy:
-        # Templates should remain compatible with `nix flake init` (ie., the 'placeholders' as is should still build)
-        # The params, then, simply replace the placeholders
         params = {
           cabal-package-name = {
             name = "Package Name";
             help = "Name of the Haskell package";
-            # TODO: Sometimes the default is dynamically detected?
-            # eg.: $USER
             default = "example";
             required = false;
             files = [
               "example.cabal"
               "flake.nix"
             ];
-            # TODO: Is this a security issue?
-            # Can we do away with arbitrary shell commands?
-            # Use cases:
-            # - Placeholder replacements
-            # - Uncomment? https://github.com/juspay/nix-dev-home/issues/37
-            # - *Required* params
-            
-            exec = ''
-              mv example.cabal ''${VALUE}.cabal
-              sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
-              sed -i 's/example/''${VALUE}/g' flake.nix
-            '';
           };
         };
       };
