@@ -23,11 +23,13 @@
             # TODO: Sometimes the default is dynamically detected?
             # eg.: $USER
             default = "my-haskell-project";
+            required = false;
             # TODO: Is this a security issue?
             # Can we do away with arbitrary shell commands?
             # Use cases:
             # - Placeholder replacements
             # - Uncomment? https://github.com/juspay/nix-dev-home/issues/37
+            # - *Required* params
             
             exec = ''
               mv example.cabal ''${VALUE}.cabal
