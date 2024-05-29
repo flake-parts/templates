@@ -12,9 +12,7 @@
   outputs = inputs: {
     templates = rec {
       home-manager = nix-dev-home;
-      nix-dev-home = {
-        description = "home-manager template using nixos-flake module";
-        path = builtins.path { path = inputs.nix-dev-home; };
+      nix-dev-home = inputs.nix-dev-home.templates.defaut // {
         params = {
           username = {
             name = "Username";
