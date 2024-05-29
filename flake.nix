@@ -13,10 +13,22 @@
       haskell-flake = {
         description = "Haskell project template, using haskell-flake";
         path = builtins.path { path = inputs.haskell-flake + /example; };
+        # Philosophy:
+        # Templates should remain compatible with `nix flake init` (ie., the 'placeholders' as is should still build)
+        # The params, then, simply replace the placeholders
         params = {
           cabal-package-name = {
+            name = "Package Name";
             help = "Name of the Haskell package";
+            # TODO: Sometimes the default is dynamically detected?
+            # eg.: $USER
             default = "my-haskell-project";
+            # TODO: Is this a security issue?
+            # Can we do away with arbitrary shell commands?
+            # Use cases:
+            # - Placeholder replacements
+            # - Uncomment? https://github.com/juspay/nix-dev-home/issues/37
+            
             exec = ''
               mv example.cabal ''${VALUE}.cabal
               sed -i 's/example/''${VALUE}/g' ''${VALUE}.cabal 
