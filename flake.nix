@@ -11,7 +11,7 @@
   outputs = inputs: {
     templates = rec {
       home-manager = nix-dev-home;
-      nix-dev-home = inputs.nix-dev-home.templates.defaut // {
+      nix-dev-home = inputs.nix-dev-home.templates.default // {
         params = {
           username = {
             name = "Username";
