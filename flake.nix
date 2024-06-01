@@ -35,9 +35,6 @@
             path = builtins.path { path = inputs.haskell-flake + /example; };
           };
         };
-
-        # To make HCI not fail; remove after adding apps or checks.
-        packages.x86_64-linux.hello = inputs.nixpkgs.legacyPackages.x86_64-linux.hello;
       };
     };
 }
