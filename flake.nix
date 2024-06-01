@@ -12,6 +12,8 @@
     templates = rec {
       home-manager = nix-dev-home;
       nix-dev-home = inputs.nix-dev-home.templates.default // {
+        # TODO: Ideally, these params should be moved to upstream module.
+        # But do that only as the spec stabliizes.
         params = {
           username = {
             name = "Username";
