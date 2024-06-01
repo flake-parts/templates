@@ -6,9 +6,12 @@
     # The pull happens in CI periodically.
     haskell-flake.url = "github:srid/haskell-flake";
     haskell-flake.flake = false;
+    nix-dev-home.url = "github:juspay/nix-dev-home";
   };
   outputs = inputs: {
     templates = rec {
+      home-manager = nix-dev-home;
+      nix-dev-home = inputs.nix-dev-home.templates.default;
       haskell = haskell-flake;
       haskell-flake = {
         description = "Haskell project template, using haskell-flake";
