@@ -35,6 +35,7 @@
             path = builtins.path { path = inputs.haskell-flake + /example; };
           };
         };
+        herculesCI.ciSystems = [ "x86_64-linux" ];
       };
     };
 }
