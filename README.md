@@ -7,12 +7,24 @@ A registry of various `flake-parts` templates
 
 ## Usage
 
-To initialize a template, run:
+There are two ways to use these templates, the first of which should be preferred:
+
+### flakreate
+
+To initialize a template using [flakreate](https://github.com/juspay/flakreate):
 
 ```sh
-nix flake init -t github:flake-parts/templates#NAME
+nix run github:juspay/flakreate
 ```
 
-where `NAME` is one of the template names below:
+This is an interactive app that allows you to choose a template and (optionally) fill in the necessary parameters for the generated project.
 
-- `haskell` (alias of: `haskell-flake`)
+### `nix flake init`
+
+To initialize a template using just the `nix` command, run:
+
+```sh
+mkdir myproject && cd myproject
+TEMPLATE=$(nix flake show github:flake-parts/templates --json | jq -r '.templates | keys[]' | fzf)
+nix flake init -t github:flake-parts/templates#${TEMPLATE}
+```
