@@ -95,6 +95,16 @@
                   "justfile"
                 ];
               };
+              author = {
+                name = "Author";
+                help = "Author name";
+                default = "Sridhar Ratnakumar";
+                required = false;
+                files = [
+                  "haskell-template.cabal"
+                  "LICENSE"
+                ];
+              };
             };
           };
         };
