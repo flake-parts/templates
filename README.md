@@ -3,7 +3,7 @@
 A registry of various `flake-parts` templates
 
 > [!WARNING] 
-> This repo is experimental. Do not promulgate *yet*.
+> This repo is experimental. Do not promulgate *until* [the GA milestone](https://github.com/flake-parts/templates/milestone/1) is complete.
 
 ## Usage
 
