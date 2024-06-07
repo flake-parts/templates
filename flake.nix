@@ -9,6 +9,8 @@
     # The pull happens in CI periodically.
     haskell-flake.url = "github:srid/haskell-flake";
     haskell-flake.flake = false;
+    haskell-template.url = "github:srid/haskell-template";
+    haskell-template.flake = false;
     nix-dev-home.url = "github:juspay/nix-dev-home";
   };
   outputs = inputs:
@@ -74,6 +76,23 @@
                 files = [
                   "example.cabal"
                   "flake.nix"
+                ];
+              };
+            };
+          };
+          haskell-template = {
+            description = "A batteries-included Haskell project template";
+            path = builtins.path { path = inputs.haskell-template; };
+            params = {
+              cabal-package-name = {
+                name = "Package Name";
+                help = "Name of the Haskell package";
+                default = "haskell-template";
+                required = false;
+                files = [
+                  "haskell-template.cabal"
+                  "flake.nix"
+                  "justfile"
                 ];
               };
             };

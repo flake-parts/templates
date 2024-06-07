@@ -183,6 +183,22 @@
         "type": "github"
       }
     },
+    "haskell-template": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717773114,
+        "narHash": "sha256-p3TOqPjUsZZfRJNsZtPWfmml5NFcccoPWNKSnP9Lv3I=",
+        "owner": "srid",
+        "repo": "haskell-template",
+        "rev": "7b7dc776be1db052b22dceceec2490e0cee9afef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "haskell-template",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -442,6 +458,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "haskell-flake": "haskell-flake",
+        "haskell-template": "haskell-template",
         "nix-dev-home": "nix-dev-home",
         "nixpkgs": "nixpkgs_2",
         "systems": "systems_3",
