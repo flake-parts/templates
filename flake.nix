@@ -61,6 +61,14 @@
                   "home/default.nix"
                 ];
               };
+              ci-github-actions = {
+                name = "GitHub Actions CI";
+                help = "Include GitHub Actions workflow configuration";
+                default = false;
+                files = [
+                  ".github"
+                ];
+              };
             };
           };
           haskell = haskell-flake;
@@ -103,6 +111,22 @@
                 files = [
                   "haskell-template.cabal"
                   "LICENSE"
+                ];
+              };
+              include-vscode = {
+                name = "VSCode support";
+                help = "Include the VSCode settings folder (./.vscode)";
+                default = true;
+                files = [
+                  ".vscode"
+                ];
+              };
+              ci-github-actions = {
+                name = "GitHub Actions CI";
+                help = "Include GitHub Actions workflow configuration";
+                default = true;
+                files = [
+                  ".github"
                 ];
               };
             };
