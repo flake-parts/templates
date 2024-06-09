@@ -33,8 +33,8 @@
           nix-dev-home = inputs.nix-dev-home.templates.default // {
             # TODO: Ideally, these params should be moved to upstream module.
             # But do that only as the spec stabliizes.
-            params = {
-              username = {
+            params = [
+              {
                 name = "Username";
                 help = "Your username as shown by by $USER";
                 default = "runner";
@@ -42,8 +42,8 @@
                 files = [
                   "flake.nix"
                 ];
-              };
-              full-name = {
+              }
+              {
                 name = "Full Name";
                 help = "Your full name for use in Git config";
                 default = "John Doe";
@@ -51,8 +51,8 @@
                 files = [
                   "home/default.nix"
                 ];
-              };
-              email = {
+              }
+              {
                 name = "Email";
                 help = "Your email for use in Git config";
                 default = "johndoe@example.com";
@@ -60,23 +60,23 @@
                 files = [
                   "home/default.nix"
                 ];
-              };
-              ci-github-actions = {
+              }
+              {
                 name = "GitHub Actions CI";
                 help = "Include GitHub Actions workflow configuration";
                 default = false;
                 files = [
                   ".github"
                 ];
-              };
-            };
+              }
+            ];
           };
           haskell = haskell-flake;
           haskell-flake = {
             description = "Haskell project template, using haskell-flake";
             path = builtins.path { path = inputs.haskell-flake + /example; };
-            params = {
-              cabal-package-name = {
+            params = [
+              {
                 name = "Package Name";
                 help = "Name of the Haskell package";
                 default = "example";
@@ -85,14 +85,14 @@
                   "example.cabal"
                   "flake.nix"
                 ];
-              };
-            };
+              }
+            ];
           };
           haskell-template = {
             description = "A batteries-included Haskell project template";
             path = builtins.path { path = inputs.haskell-template; };
-            params = {
-              cabal-package-name = {
+            params = [
+              {
                 name = "Package Name";
                 help = "Name of the Haskell package";
                 default = "haskell-template";
@@ -102,8 +102,8 @@
                   "flake.nix"
                   "justfile"
                 ];
-              };
-              author = {
+              }
+              {
                 name = "Author";
                 help = "Author name";
                 default = "Sridhar Ratnakumar";
@@ -112,24 +112,24 @@
                   "haskell-template.cabal"
                   "LICENSE"
                 ];
-              };
-              include-vscode = {
+              }
+              {
                 name = "VSCode support";
                 help = "Include the VSCode settings folder (./.vscode)";
                 default = true;
                 files = [
                   ".vscode"
                 ];
-              };
-              ci-github-actions = {
+              }
+              {
                 name = "GitHub Actions CI";
                 help = "Include GitHub Actions workflow configuration";
                 default = true;
                 files = [
                   ".github"
                 ];
-              };
-            };
+              }
+            ];
           };
         };
         herculesCI.ciSystems = [ "x86_64-linux" ];
