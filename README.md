@@ -14,7 +14,8 @@ There are two ways to use these templates, the first of which should be preferre
 To initialize a template using [flakreate](https://github.com/juspay/flakreate):
 
 ```sh
-nix run github:juspay/flakreate
+nix run github:juspay/flakreate ~/myproject
+cd ~/myproject
 ```
 
 This is an interactive app that allows you to choose a template and (optionally) fill in the necessary parameters for the generated project.
