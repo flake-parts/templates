@@ -28,11 +28,11 @@
         };
       };
       flake = {
+        # TODO: Ideally, these params should be moved to upstream module.
+        # But do that only as the spec stabliizes.
         templates = rec {
-          home-manager = nix-dev-home;
           nix-dev-home = inputs.nix-dev-home.templates.default // {
-            # TODO: Ideally, these params should be moved to upstream module.
-            # But do that only as the spec stabliizes.
+            tags = [ "home-manager" "juspay" "development" ];
             params = [
               {
                 name = "Username";
@@ -71,10 +71,10 @@
               }
             ];
           };
-          haskell = haskell-flake;
           haskell-flake = {
             description = "Haskell project template, using haskell-flake";
             path = builtins.path { path = inputs.haskell-flake + /example; };
+            tags = [ "haskell" "haskell-flake" ];
             params = [
               {
                 name = "Package Name";
@@ -91,6 +91,7 @@
           haskell-template = {
             description = "A batteries-included Haskell project template";
             path = builtins.path { path = inputs.haskell-template; };
+            tags = [ "haskell" "haskell-flake" "relude" "just" ];
             params = [
               {
                 name = "Package Name";
