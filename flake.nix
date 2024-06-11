@@ -29,7 +29,7 @@
       };
       flake = {
         # TODO: Ideally, these params should be moved to upstream module.
-        # But do that only as the spec stabliizes.
+        # But do that only as the spec stabilizes.
         templates = rec {
           nix-dev-home = inputs.nix-dev-home.templates.default // {
             tags = [ "home-manager" "juspay" "development" ];
